@@ -28,16 +28,14 @@
 
 
 					vm.add = function(customer) {
-						if(cusForm.$valid){
+						
 						dataServices.addCustomer(customer)
 									.then(function() {
 									getCus();
 							logger.success('Add Customer Success');
-							vm.cus ={};
-									});
-						}else{
-							logger.error('Please fill in the form')
-						}
+							
+								});
+						
 
 					};
 
