@@ -1,0 +1,52 @@
+<div class="dashboard-view ">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="widget-left">
+				<div class="widget-header">
+				Customer
+				</div>
+					<div class="widget-body">
+						<table class="table table-striped table-hover">
+							<thead>
+							<tr>
+								<th>FirstName</th>
+								<th>LastName</th>
+								<th>Age</th>
+								<th>Location</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="c in vm.customer">
+									<td>{{c.firstname}}</td>
+									<td>{{c.lastname}}</td>
+									<td>{{c.age}}</td>
+									<td>{{c.location}}</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="widget-right">
+				<div class="widget-header">
+				TODO
+			</div>
+			<div class="widget-body">
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+						<td>
+							Simple Crud App Mean Stack
+						</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

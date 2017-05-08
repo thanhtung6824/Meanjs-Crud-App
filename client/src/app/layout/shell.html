@@ -1,0 +1,11 @@
+<div class="layout" ng-controller="Shell as vm">
+	<header>
+		<div ng-include="'/src/app/layout/navbar.html'"></div>
+	</header>
+	<section id="content">
+	<div ng-include="'/src/app/layout/sidebar.html'"></div>
+
+	</section>
+		<div ui-view></div>
+
+</div>

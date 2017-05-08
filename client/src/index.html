@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Saha</title>
+	<base href="/">
+<!--bower:css-->
+<link rel="stylesheet" href="/libs/toastr/toastr.css" />
+<link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css" />
+<!--endbower-->
+<!--inject:css-->
+	<link rel="stylesheet" href="/tmp/styles.css">
+	<!--endinject-->
+</head>
+<body>
+<div ng-include="'/src/app/layout/shell.html'"></div>
+<div id="page-splash" ng-show="showSplash">
+<div class="content-splash">
+	<div class="mess-splash">
+		Hello World
+	</div>
+	<div class="process-splash">
+		<div class="bar"></div>
+	</div>
+</div>
+	
+</div>
+
+
+
+<!--bower:js-->
+<script src="/libs/angular/angular.js"></script>
+<script src="/libs/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/libs/jquery/dist/jquery.js"></script>
+<script src="/libs/toastr/toastr.js"></script>
+<script src="/libs/angular-animate/angular-animate.js"></script>
+<script src="/libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/libs/angular-messages/angular-messages.js"></script>
+<!--endbower-->
+	
+<!--inject:js-->
+
+<script src="/src/app/app.module.js"></script>
+
+<script src="/src/app/customer/customer.module.js"></script>
+
+<script src="/src/app/core/core.module.js"></script>
+
+<script src="/src/app/dashboard/dashboard.module.js"></script>
+
+<script src="/src/app/layout/banner.module.js"></script>
+
+<script src="/src/app/layout/shell.module.js"></script>
+
+<script src="/src/app/logger/logger.module.js"></script>
+
+<script src="/src/app/customer/customer.js"></script>
+
+<script src="/src/app/customer/customer.router.js"></script>
+
+<script src="/src/app/core/config.js"></script>
+
+<script src="/src/app/core/constant.js"></script>
+
+<script src="/src/app/core/dataservices.js"></script>
+
+<script src="/src/app/dashboard/dashboard.js"></script>
+
+<script src="/src/app/dashboard/dashboard.router.js"></script>
+
+<script src="/src/app/layout/banner.router.js"></script>
+
+<script src="/src/app/layout/shell.js"></script>
+
+<script src="/src/app/logger/logger.js"></script>
+
+<!--endinject-->
+</body>
+</html>

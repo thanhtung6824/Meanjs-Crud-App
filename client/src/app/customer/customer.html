@@ -1,0 +1,134 @@
+<div class="customer-view">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="widget-left">
+				<div class="widget-header">
+					Customer List
+					
+				</div>
+			<div class="widget-body">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>Age</th>
+						<th>Location</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+			<tr ng-repeat="c in vm.customer |startFrom:(vm.currentPage-1)*vm.pageSize  | limitTo: vm.pageSize ">
+					<td>{{c.firstname}}</td>
+					<td>{{c.lastname}}</td>
+					<td>{{c.age}}</td>
+					<td>{{c.location}}</td>
+					<td>
+					<button ng-click="vm.change(c._id,c.firstname,c.lastname,c.age,c.location)"
+					 class="btn  btn-warning">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>	
+					</button>			
+					<button  ng-click="vm.delete(c._id,$index)"class="btn btn-danger">
+				<i class="fa fa-trash-o" aria-hidden="true"></i>
+					</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</div>
+			<div class="widget-footer">
+				<div class="pull-right" uib-pagination total-items="vm.customer.length" ng-model="vm.currentPage" items-per-page="vm.pageSize">	
+				</div>
+			</div>
+		</div>		
+	</div>
+			<div class="col-md-6">
+				<div class="widget-right">
+					<div class="widget-header">
+							TODO FORM
+					</div>
+				<div class="widget-body">
+					<form novalidate name="cusForm">
+				<div class="form-group"
+			ng-class="{'has-error':cusForm.firstname.$invalid &&
+								  cusForm.firstname.$touched,
+					  'has-success': cusForm.firstname.$valid}">
+				   <label>FirstName</label>
+					<input type="text"
+						   ng-model="vm.cus.firstname"
+						   name="firstname"
+						   class="form-control"
+						  required>
+				 <div ng-messages="cusForm.firstname.$error" style="color:red;margin-left: 20px;">
+				 	<div ng-message="required" ng-if="cusForm.firstname.$touched">This field is required</div>
+				 </div>
+			</div>
+			<div class="form-group"
+				ng-class="{'has-error':cusForm.lastname.$invalid &&
+								      cusForm.lastname.$touched,
+					  'has-success':  cusForm.lastname.$valid}">
+					<label>LastName</label>
+					<input type="text"
+						   ng-model="vm.cus.lastname"
+						   name="lastname"
+						   class="form-control"
+						   required>
+				 <div ng-messages="cusForm.lastname.$error" style="color:red;margin-left: 20px;">
+				 	<div ng-message="required" ng-if="cusForm.lastname.$touched">This field is required</div>
+				 </div>
+			</div>
+			<div class="form-group"
+				ng-class="{'has-error':cusForm.age.$invalid &&
+								  	 cusForm.age.$touched,
+					  'has-success': cusForm.age.$valid}">
+					<label>Age</label>
+					<input type="text"
+						   ng-model="vm.cus.age"
+						   name="age"
+						   ng-pattern="/^\d+$/"
+						   class="form-control"
+						   required>
+				 <div ng-messages="cusForm.age.$error" style="color:red;margin-left: 20px;">
+				 	<div ng-message="required" ng-if="cusForm.age.$touched">This field is required</div>
+				 	<div ng-message="pattern">Only allow number</div>
+				 </div>
+			</div>
+			<div class="form-group"
+			ng-class="{'has-error':cusForm.location.$invalid &&
+								  cusForm.location.$touched,
+					  'has-success': cusForm.location.$valid}">
+				<label>Location</label>
+				<input type="text"
+					   ng-model="vm.cus.location"
+		   			   name="location"
+		   			   class="form-control"
+			 		   required>
+			 	<div ng-messages="cusForm.location.$error" style="color:red;margin-left: 20px;">
+				 	<div ng-message="required" ng-if="cusForm.location.$touched">This field is required</div>
+				 </div>
+			</div>
+
+		<div class="form-group">
+		<button ng-if="!vm.editing"class="btn btn-success"
+		    	ng-click="vm.add(vm.cus)">
+							Add Customer
+		</button>
+		<button ng-if="vm.editing" class="btn btn-success" 
+		ng-click="vm.edit(vm.cus,vm.cus.id)">
+							Edit Customer
+			</button>
+
+	<button class="btn btn-default " ng-if="vm.editing" ng-click="vm.back()">
+			<i class="fa fa-caret-square-o-left" aria-hidden="true"></i>
+		</button>
+		</div>
+
+
+
+		</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
