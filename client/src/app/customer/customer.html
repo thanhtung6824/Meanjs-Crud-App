@@ -48,39 +48,24 @@
 							TODO FORM
 					</div>
 				<div class="widget-body">
-					<form novalidate name="cusForm">
-				<div class="form-group"
-			ng-class="{'has-error':cusForm.firstname.$invalid &&
-								  cusForm.firstname.$touched,
-					  'has-success': cusForm.firstname.$valid}">
+					<form  name="cusForm">
+				<div class="form-group">
 				   <label>FirstName</label>
 					<input type="text"
 						   ng-model="vm.cus.firstname"
 						   name="firstname"
 						   class="form-control"
 						  required>
-				 <div ng-messages="cusForm.firstname.$error" style="color:red;margin-left: 20px;">
-				 	<div ng-message="required" ng-if="cusForm.firstname.$touched">This field is required</div>
-				 </div>
 			</div>
-			<div class="form-group"
-				ng-class="{'has-error':cusForm.lastname.$invalid &&
-								      cusForm.lastname.$touched,
-					  'has-success':  cusForm.lastname.$valid}">
+			<div class="form-group">
 					<label>LastName</label>
 					<input type="text"
 						   ng-model="vm.cus.lastname"
 						   name="lastname"
 						   class="form-control"
 						   required>
-				 <div ng-messages="cusForm.lastname.$error" style="color:red;margin-left: 20px;">
-				 	<div ng-message="required" ng-if="cusForm.lastname.$touched">This field is required</div>
-				 </div>
 			</div>
-			<div class="form-group"
-				ng-class="{'has-error':cusForm.age.$invalid &&
-								  	 cusForm.age.$touched,
-					  'has-success': cusForm.age.$valid}">
+			<div class="form-group">
 					<label>Age</label>
 					<input type="text"
 						   ng-model="vm.cus.age"
@@ -89,32 +74,28 @@
 						   class="form-control"
 						   required>
 				 <div ng-messages="cusForm.age.$error" style="color:red;margin-left: 20px;">
-				 	<div ng-message="required" ng-if="cusForm.age.$touched">This field is required</div>
 				 	<div ng-message="pattern">Only allow number</div>
 				 </div>
 			</div>
-			<div class="form-group"
-			ng-class="{'has-error':cusForm.location.$invalid &&
-								  cusForm.location.$touched,
-					  'has-success': cusForm.location.$valid}">
+			<div class="form-group">
 				<label>Location</label>
 				<input type="text"
 					   ng-model="vm.cus.location"
 		   			   name="location"
 		   			   class="form-control"
 			 		   required>
-			 	<div ng-messages="cusForm.location.$error" style="color:red;margin-left: 20px;">
-				 	<div ng-message="required" ng-if="cusForm.location.$touched">This field is required</div>
-				 </div>
+			 
 			</div>
 
 		<div class="form-group">
 		<button ng-if="!vm.editing"class="btn btn-success"
-		    	ng-click="vm.add(vm.cus)">
+		    	ng-click="vm.add(vm.cus)"
+		    	ng-disabled="cusForm.$invalid">
 							Add Customer
 		</button>
 		<button ng-if="vm.editing" class="btn btn-success" 
-		ng-click="vm.edit(vm.cus,vm.cus.id)">
+		ng-click="vm.edit(vm.cus,vm.cus.id)"
+		ng-disabled="cusForm.$invalid">
 							Edit Customer
 			</button>
 
