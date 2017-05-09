@@ -114,7 +114,7 @@ header{
 side-bar
 */
 .side-bar{
-
+    z-index: 1000;
     width:300px;
     background-color: $color-sidebar;
     height: 100%;
@@ -254,6 +254,7 @@ customer-view
         }
     }
 }
+
 /*
 animation
 */

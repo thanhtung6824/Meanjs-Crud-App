@@ -33,8 +33,7 @@
 									.then(function() {
 									getCus();
 							logger.success('Add Customer Success');
-							
-								});
+									});
 						
 
 					};
@@ -66,7 +65,6 @@
 							.then(function() {
 								logger.success('Edit Customer Success');
 								getCus();
-								vm.cus={};
 							});
 					}
 				};
